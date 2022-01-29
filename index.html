@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,43 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <title>Vue.js App</title>
 </head>
+
 <body>
     <div id="app">
         <label for="name">Name: </label>
         <input id="name" type="text" v-on:input="changeName">
         <p>Hello {{name}}</p>
     </div>
-    <script>
-        new Vue({
-            el: "#app",
-            data: {
-                name: "Max Mustermann"
-            },
-            methods: {
-                changeName: function(event) {
-                    this.name = event.target.value;
-                }
-            }
-        });
-    </script>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+            Hover for dynamically bound title.
+        </span>
+    </div>
+
+    <div id="app-3">
+        <button v-on:click="removeText">{{ btnText }}</button>
+        <span v-if="seen">Now you see me</span>
+    </div>
+
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message">
+    </div>
+    <script src="index.js"></script>
 </body>
+
 </html>
